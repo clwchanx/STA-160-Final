@@ -2,7 +2,7 @@
 title: "ProjectionPlots"
 author: "Clayton Chan"
 date: "2023-06-01"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
