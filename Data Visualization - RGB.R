@@ -17,101 +17,108 @@ df
 
 #hiearchical clustering on color, and can visualize the color board, the yellow lips
 
+require(gridExtra)
+
+#dev.new(width = 10000, height = 5000, unit = "px")
+dev.new(width=30, height=15)
 #R AND G COMPARISON
-ggplot(df, aes(x=R, y=G, color = B)) +
+plot1 <- ggplot(df, aes(x=R, y=G, color = B)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Green") +
-  ggtitle("2D Projection of Red Pixels vs Green Pixels for Blue MM")
+  ggtitle("2D Projection of Red Pixels vs Green Pixels for Blue MM") +
+  scale_color_gradient(low = "#0285F9", high = "#254368")
 #R AND B COMPARISON 
-ggplot(df, aes(x=R, y=B, color = G)) +
+plot2 <- ggplot(df, aes(x=R, y=B, color = G)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Blue") +
-  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Blue MM")
+  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Blue MM") +
+  scale_color_gradient(low = "#0285F9", high = "#254368")
 #G AND B COMPARISON
-ggplot(df, aes(x=G, y=B, color = R)) +
+plot3 <- ggplot(df, aes(x=G, y=B, color = R)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Green") + ylab("Blue") +
-  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Blue MM")
+  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Blue MM") +
+  scale_color_gradient(low = "#0285F9", high = "#254368")
+grid.arrange(plot1, plot2, plot3, ncol=3)
 
 df_aqua= read.csv("Aqua-Data.csv")
 #R AND G COMPARISON
 ggplot(df_aqua, aes(x=R, y=G, color = B )) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Green") +
-  ggtitle("2D Projection of Red Pixels vs Green Pixels for Blue MM")
+  ggtitle("2D Projection of Red Pixels vs Green Pixels for Aqua MM")  +
+  scale_color_gradient(low = "#3DFAF4", high = "#318381")
 #R AND B COMPARISON 
 ggplot(df_aqua, aes(x=R, y=B, color = G )) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Blue") +
-  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Aqua MM")
+  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Aqua MM") +
+  scale_color_gradient(low = "#3DFAF4", high = "#318381")
 #G AND B COMPARISON
 ggplot(df_aqua, aes(x=G, y=B, color = R)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Green") + ylab("Blue") +
-  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Aqua MM")
+  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Aqua MM") +
+  scale_color_gradient(low = "#3DFAF4", high = "#318381")
 
 df_green = read.csv("Green-Data.csv")
 #R AND G COMPARISON
 ggplot(df_green, aes(x=R, y=G, color = B)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Green") +
-  ggtitle("2D Projection of Red Pixels vs Green Pixels for Green MM")
+  ggtitle("2D Projection of Red Pixels vs Green Pixels for Green MM")+
+  scale_color_gradient(low = "#0FF808", high = "#276825")
 #R AND B COMPARISON 
 #R AND B COMPARISON 
 ggplot(df_green, aes(x=R, y=B, color = G )) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Blue") +
-  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Green MM")
+  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Green MM")+
+  scale_color_gradient(low = "#0FF808", high = "#276825")
 #G AND B COMPARISON
 ggplot(df_green, aes(x=G, y=B, color = R)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Green") + ylab("Blue") +
-  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Green MM")
+  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Green MM")+
+  scale_color_gradient(low = "#0FF808", high = "#276825")
 
 df_red = read.csv("Red-Data.csv")
 #R AND G COMPARISON
 ggplot(df_red, aes(x=R, y=G, color = B)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Red") + ylab("Green") +
-  ggtitle("2D Projection of Red Pixels vs Green Pixels for Red MM")
+  ggtitle("2D Projection of Red Pixels vs Green Pixels for Red MM")  +
+  scale_color_gradient(low = "#FFCCCB", high = "#FF0000")
 #R AND B COMPARISON 
 ggplot(df_red, aes(x=R, y=B, color = G)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Red") + ylab("Blue") +
-  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Red MM")
+  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Red MM")+
+  scale_color_gradient(low = "#FFCCCB", high = "#FF0000")
 #G AND B COMPARISON
 ggplot(df_red, aes(x=G, y=B, color = R)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Green") + ylab("Blue") +
-  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Red MM")
+  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Red MM")+
+  scale_color_gradient(low = "#FFCCCB", high = "#FF0000")
 
-df_red = read.csv("Red-Data.csv")
-#R AND G COMPARISON
-ggplot(df_red, aes(x=R, y=G, color = B)) +
-  geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
-  scale_y_continuous(breaks=seq(0,255,25))
-#R AND B COMPARISON 
-ggplot(df_red, aes(x=R, y=B, color = G )) +
-  geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
-  scale_y_continuous(breaks=seq(0,255,25))
-#G AND B COMPARISON
-ggplot(df_red, aes(x=G, y=B, color = R)) +
-  geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
-  scale_y_continuous(breaks=seq(0,255,25))
 
 df_orange = read.csv("Orange-Data.csv")
 #R AND G COMPARISON
 ggplot(df_orange, aes(x=R, y=G, color = B)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Green") +
-  ggtitle("2D Projection of Red Pixels vs Green Pixels for Orange MM")
+  ggtitle("2D Projection of Red Pixels vs Green Pixels for Orange MM") +
+  scale_color_gradient(low = "#FFD580", high = "#FFA500")
 #R AND B COMPARISON 
 ggplot(df_orange, aes(x=R, y=B, color = G )) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25)) + xlab("Red") + ylab("Blue") +
-  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Orange MM")
+  ggtitle("2D Projection of Red Pixels vs Blue Pixels for Orange MM")+
+  scale_color_gradient(low = "#FFD580", high = "#FFA500")
 #G AND B COMPARISON
 ggplot(df_orange, aes(x=G, y=B, color = R )) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   scale_y_continuous(breaks=seq(0,255,25))+ xlab("Green") + ylab("Blue") +
-  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Orange MM")
+  ggtitle("2D Projection of Green Pixels vs Blue Pixels for Orange MM")+
+  scale_color_gradient(low = "#FFD580", high = "#FFA500")
