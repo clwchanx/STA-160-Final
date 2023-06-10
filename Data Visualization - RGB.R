@@ -20,7 +20,7 @@ df
 require(gridExtra)
 
 #dev.new(width = 10000, height = 5000, unit = "px")
-dev.new(width=30, height=15)
+dev.new(width=80, height=45)
 #R AND G COMPARISON
 plot1 <- ggplot(df, aes(x=R, y=G, color = B)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
