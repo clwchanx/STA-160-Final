@@ -6,11 +6,11 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo= TRUE)
 ```
 
 ```{r}
-df <- read.csv("Blue-Data.csv")
+df <- read.csv("Red-Data.csv")
 ```
 
 ```{r}
@@ -19,9 +19,9 @@ library(ggplot2)
 For the blue Marilyn shot,
 ```{r}
 ggplot(df, aes(x=R, y=G, color=B)) +
-  geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
+  geom_point()  + scale_x_continuous(breaks=seq(0,255,25)) +
   geom_abline(slope = 1, intercept = 0, linetype = 2)+
-  scale_y_continuous(breaks=seq(0,255,25))
+  scale_y_continuous(breaks=seq(0,255,25)) + scale_color_gradient(low = "#Ff9393", high = "#870c0c")
 ```
 
 Judging by this plot, we can see that the red and green values are fairly correlated and seem to follow a trend similar to y = x. For example, when the green value is 225, we can be 100% certain that the red value is always greater than 175. In fact, this plot has a lot of empty space and the dots don't fill the entire quadrant meaning a alot of combinations of red and green are not possible. Then, if we split the points to a pattern similar to y = x, we can see that above the line, the points tend to have a higher blue value compared to the points below the line as evidenced by the legend.
@@ -29,14 +29,14 @@ Judging by this plot, we can see that the red and green values are fairly correl
 ```{r}
 ggplot(df, aes(x=R, y=B, color=G)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
-  geom_vline(xintercept = 200,linetype = 2)+
-  scale_y_continuous(breaks=seq(0,255,25))
+  geom_abline(slope = 1, intercept = 0, linetype = 2)+
+  scale_y_continuous(breaks=seq(0,255,25)) + scale_color_gradient(low = "#Ff9393", high = "#870c0c")
 ```
 On the other hand, we see that there's less empty space in this plot meaning there's more combinations of blue and red possible compared to red and green. If we divide the points with a verticle line somewhere around 200, we can see that the green values to be higher for the points on the right as opposed to the left.
 ```{r}
 ggplot(df, aes(x=G, y=B, color=R)) +
   geom_point() + scale_x_continuous(breaks=seq(0,255,25)) +
   geom_abline(slope = 1, intercept = -25, linetype = 2)+
-  scale_y_continuous(breaks=seq(0,255,25))
+  scale_y_continuous(breaks=seq(0,255,25)) + scale_color_gradient(low = "#Ff9393", high = "#870c0c")
 ```
 This plot has the 2nd least empty space meaning it has the 2 most combinations available (between blue and green). Dividing the points with the line shown in the figure. We can see that the points above tend to have a lower red value compared to the points below where the red value is pretty high.
