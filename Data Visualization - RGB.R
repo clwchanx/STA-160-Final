@@ -1,21 +1,8 @@
+
+#all plots are created using ggplot to compare all 3 colors, they are scatterplots 
 df = read.csv("Blue-Data.csv")
 library(ggplot2)
-df
-#absence of space 
-#extract hair, skins, eyeshadows,
-#what does extraction tell you, validation of observation
-#optional - entropy 
-#describe geometry, focus on 
-# for example, linear relationship between green and red and significant shape, must deserve to be describe.. Green and Blue, hard. Geometry across all the other
-#colors and see if there is any similarities or differences among them. Take it from geometry perspecitve of the colors 
 
-#give differences between the versions, very different. Not linear 
-
-# try looking at geometry of subset of the hair across all different versions compared to the whole image, hair could be non linear
-#compare all versions
-#eye shadow, face, 
-
-#hiearchical clustering on color, and can visualize the color board, the yellow lips
 
 require(gridExtra)
 
